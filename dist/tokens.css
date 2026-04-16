@@ -1,0 +1,98 @@
+/* ============================================================
+   @ecdaerol/calculator-ui — Design Tokens
+   Canonical :root + .embed-dark token blocks shared across
+   every ecdaerol engineering calculator.
+
+   Light values: :root
+   Dark embed overrides: .embed-dark
+   ============================================================ */
+
+:root {
+  --bg: #f5f5f5;
+  --panel: #ffffff;
+  --ink: #222222;
+  --muted: #666666;
+  --line: #dddddd;
+  --brand: #d52b1e;
+  --brand-2: #b71c1c;
+  --ok: #067647;
+  --warn: #fb8c00;
+  --danger: #d52b1e;
+  --info: #374151;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --ok-bg: #e8f5e9;
+  --warn-bg: #fff3e0;
+  --danger-bg: #fbe9e7;
+  --info-bg: #f3f4f6;
+  --na-bg: var(--bg);
+  --alert-bg: #fff8e1;
+  --alert-border: #ffa000;
+  --alert-heading: #e65100;
+  --alert-body: #4e342e;
+  --info-border: #9ca3af;
+  --info-heading: #374151;
+  --info-body: #374151;
+  --bar-track: #eeeeee;
+  --on-brand: #ffffff;
+  --disabled-text: #9ca3af;
+}
+
+/* Dark embed mode — matches portfolio dark theme */
+.embed-dark {
+  --bg: #000000;
+  --panel: rgba(255, 255, 255, 0.03);
+  --ink: #f1f5f9;
+  --muted: rgba(255, 255, 255, 0.5);
+  --line: rgba(255, 255, 255, 0.06);
+  --brand: #a855f7;
+  --brand-2: #9333ea;
+  --ok: #22c55e;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --info: rgba(255, 255, 255, 0.6);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --ok-bg: rgba(34, 197, 94, 0.15);
+  --warn-bg: rgba(251, 140, 0, 0.15);
+  --danger-bg: rgba(239, 68, 68, 0.15);
+  --info-bg: rgba(255, 255, 255, 0.04);
+  --na-bg: var(--bg);
+  --alert-bg: rgba(251, 140, 0, 0.08);
+  --alert-border: #ffa000;
+  --alert-heading: #fb8c00;
+  --alert-body: rgba(255, 255, 255, 0.7);
+  --info-border: rgba(255, 255, 255, 0.15);
+  --info-heading: rgba(255, 255, 255, 0.6);
+  --info-body: rgba(255, 255, 255, 0.6);
+  --bar-track: rgba(255, 255, 255, 0.1);
+  --on-brand: #ffffff;
+  --disabled-text: rgba(255, 255, 255, 0.4);
+}
+
+.embed-dark::-webkit-scrollbar { width: 8px; }
+.embed-dark::-webkit-scrollbar-track { background: transparent; }
+.embed-dark::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 4px; }
+.embed-dark::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
+.embed-dark { scrollbar-color: rgba(255, 255, 255, 0.15) transparent; scrollbar-width: thin; }
+
+.embed-dark select,
+.embed-dark input[type="number"],
+.embed-dark input[type="text"],
+.embed-dark details {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #f1f5f9 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.embed-dark select option,
+.embed-dark select optgroup {
+  background-color: #1e1e1e;
+  color: #f1f5f9;
+}
+
+.embed-dark summary {
+  color: #f1f5f9 !important;
+}
+
+.embed-dark details {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
