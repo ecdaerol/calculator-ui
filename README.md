@@ -5,45 +5,52 @@ Shared design tokens, Tailwind preset, and React chrome components for the
 typography, cards, badges, and dimension lines — so all 22 calculators stay
 visually consistent and the dark embed mode keeps working out of the box.
 
-> **Status:** v0.1.0 — private, not published to npm. Consume via local `npm
-> pack` tarball or a `file:` dependency. The pilot tool is
-> `fastener-torque-calculator`.
+> **Status:** v0.1.0 — public GitHub repo, not yet on npm. Consume directly
+> as a git dep. Pilot consumer: [`fastener-torque-calculator`](https://github.com/ecdaerol/fastener-torque-calculator)
+> — migration merged, visual regression 4/4 pixel-identical.
 
 ## Install
-
-```bash
-# From the calculator-ui repo
-npm install
-npm run build
-npm pack          # produces ecdaerol-calculator-ui-0.1.0.tgz
-```
 
 In the consumer calculator:
 
 ```bash
-npm install ../calculator-ui/ecdaerol-calculator-ui-0.1.0.tgz
+npm install --save-exact "github:ecdaerol/calculator-ui#main"
 ```
+
+The package ships a pre-built `dist/` on `main`, so no build step or
+`prepare` script runs on the consumer side.
 
 ## Usage
 
 ### 1. Import the design tokens
 
-In your global stylesheet (e.g. `src/index.css`), replace the local
-`:root { ... }` and `.embed-dark { ... }` blocks with:
+In your entry point (`src/main.tsx` or similar), import the tokens **before**
+your own stylesheet so local rules can build on the tokens:
 
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+```tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import '@ecdaerol/calculator-ui/tokens.css';
+import './index.css';
 
-@import "@ecdaerol/calculator-ui/tokens.css";
+ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
 ```
 
-That single import provides every token the components and the Tailwind
-preset reference: `--bg`, `--panel`, `--ink`, `--muted`, `--line`, `--brand`,
-`--brand-2`, `--ok`, `--ok-bg`, `--warn`, `--warn-bg`, `--danger`,
-`--danger-bg`, `--info`, `--info-bg`, `--bar-track`, plus the dark overrides
-under `.embed-dark`.
+Then delete the local `:root { ... }`, `.embed-dark { ... }`, and
+`.embed-dark select/summary/details/scrollbar` blocks from your local
+`src/index.css`. The package provides all of them.
+
+> Importing from `main.tsx` (JS-side) rather than via CSS `@import` avoids
+> the standard-CSS rule that `@import` must precede every other statement —
+> Vite's postcss pipeline doesn't always lift `@import` past `@tailwind`
+> directives.
+
+The tokens exported: `--bg`, `--panel`, `--ink`, `--muted`, `--line`,
+`--brand`, `--brand-2`, `--ok`, `--ok-bg`, `--warn`, `--warn-bg`, `--danger`,
+`--danger-bg`, `--info`, `--info-bg`, `--bar-track`, `--shadow`, `--on-brand`,
+`--disabled-text`, `--na-bg`, `--alert-*`, plus the `.embed-dark` overrides
+and the form/scrollbar/summary/details embed rules.
 
 ### 2. Adopt the Tailwind preset
 
@@ -140,5 +147,7 @@ npm run typecheck   # tsc --noEmit
 - No CSS-in-JS, no styled-components, no heavy chrome dependencies — keep
   the bundle ~10 KB gzipped.
 - React and React DOM are externalised peer dependencies.
-- Package stays `private: true` until visual regression CI (Plan 3) lands
-  and broader rollout is approved.
+- Visual regression CI landed across all 22 calculator repos, so migrations
+  are safe: any token drift fails the consumer's visual job immediately.
+- Broader rollout (the other 21 tools) is the next step once the pilot
+  has run on `main` for a few days without issue.
