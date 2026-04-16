@@ -1,0 +1,6 @@
+/** Tiny inline className merger — avoids the clsx/classnames dependency. */
+export function cx(
+  ...parts: Array<string | false | null | undefined | 0>
+): string {
+  return parts.filter(Boolean).join(' ');
+}
