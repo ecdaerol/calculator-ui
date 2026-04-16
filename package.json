@@ -19,11 +19,14 @@
       "import": "./dist/index.js"
     },
     "./tokens.css": "./dist/tokens.css",
-    "./tailwind-preset": "./tailwind-preset.js"
+    "./tailwind-preset": {
+      "require": "./tailwind-preset.cjs",
+      "default": "./tailwind-preset.cjs"
+    }
   },
   "files": [
     "dist",
-    "tailwind-preset.js",
+    "tailwind-preset.cjs",
     "README.md"
   ],
   "sideEffects": [
