@@ -6,8 +6,8 @@ typography, cards, badges, and dimension lines — so all 22 calculators stay
 visually consistent and the dark embed mode keeps working out of the box.
 
 > **Status:** v0.1.0 — public GitHub repo, not yet on npm. Consume directly
-> as a git dep. Pilot consumer: [`fastener-torque-calculator`](https://github.com/ecdaerol/fastener-torque-calculator)
-> — migration merged, visual regression 4/4 pixel-identical.
+> as a git dep. All 22 calculators now consume the package — migrations
+> merged, visual regression pixel-identical across the board.
 
 ## Install
 
@@ -149,5 +149,3 @@ npm run typecheck   # tsc --noEmit
 - React and React DOM are externalised peer dependencies.
 - Visual regression CI landed across all 22 calculator repos, so migrations
   are safe: any token drift fails the consumer's visual job immediately.
-- Broader rollout (the other 21 tools) is the next step once the pilot
-  has run on `main` for a few days without issue.
