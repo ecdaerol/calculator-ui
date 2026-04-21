@@ -35,6 +35,43 @@
   --bar-track: #eeeeee;
   --on-brand: #ffffff;
   --disabled-text: #9ca3af;
+
+  /* ──────────────────────────────────────────────────────────────
+     SVG DIAGRAM TOKENS — shared system for calculator visualisations.
+     Use inside any inline <svg>. The stroke/size values are in SVG
+     user units assuming a ≈ 400-unit-wide viewBox.
+     ────────────────────────────────────────────────────────────── */
+
+  /* Typography */
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Text sizes (SVG user units) */
+  --svg-text-title: 12;
+  --svg-text-label: 10;
+  --svg-text-dim: 9;
+  --svg-text-caption: 8;
+
+  /* Stroke hierarchy (SVG user units) */
+  --svg-stroke-heavy: 1.5;
+  --svg-stroke-medium: 1;
+  --svg-stroke-light: 0.6;
+  --svg-stroke-hair: 0.4;
+
+  /* Dash patterns */
+  --svg-dash-pitch: 3 2;
+  --svg-dash-construction: 2 2;
+
+  /* Diagram colours (light mode) — dimensions/construction are neutral,
+     active elements use --brand. Replaces scattered orange/hex literals. */
+  --svg-ink: var(--ink);
+  --svg-muted: var(--muted);
+  --svg-dim-stroke: var(--muted);
+  --svg-dim-text: var(--muted);
+  --svg-accent: var(--brand);
+  --svg-accent-2: #8b6a47;
+  --svg-fill-neutral: rgba(34, 34, 34, 0.08);
+  --svg-fill-accent: rgba(213, 43, 30, 0.12);
+  --svg-fill-accent-2: rgba(139, 106, 71, 0.12);
 }
 
 /* Dark embed mode — matches portfolio dark theme */
@@ -66,7 +103,27 @@
   --bar-track: rgba(255, 255, 255, 0.1);
   --on-brand: #ffffff;
   --disabled-text: rgba(255, 255, 255, 0.4);
+
+  /* SVG diagram tokens — dark-mode overrides. */
+  --svg-ink: var(--ink);
+  --svg-muted: var(--muted);
+  --svg-dim-stroke: rgba(255, 255, 255, 0.55);
+  --svg-dim-text: rgba(255, 255, 255, 0.65);
+  --svg-accent: var(--brand);
+  --svg-accent-2: #c084fc;
+  --svg-fill-neutral: rgba(255, 255, 255, 0.06);
+  --svg-fill-accent: rgba(168, 85, 247, 0.18);
+  --svg-fill-accent-2: rgba(192, 132, 252, 0.14);
 }
+
+/* SVG helper classes — use on <text> and <g> inside diagrams.
+   Inline font-family="var(...)" is not honoured by SVG attributes, so
+   consumers should either apply these classes or use style={{ fontFamily: 'var(--font-mono)' }}. */
+.svg-mono { font-family: var(--font-mono); }
+.svg-text-title   { font-family: var(--font-mono); font-size: 12px; font-weight: 700; }
+.svg-text-label   { font-family: var(--font-mono); font-size: 10px; font-weight: 600; }
+.svg-text-dim     { font-family: var(--font-mono); font-size: 9px;  font-weight: 700; fill: var(--svg-dim-text); }
+.svg-text-caption { font-family: var(--font-mono); font-size: 8px;  font-weight: 400; fill: var(--svg-muted); }
 
 .embed-dark::-webkit-scrollbar { width: 8px; }
 .embed-dark::-webkit-scrollbar-track { background: transparent; }

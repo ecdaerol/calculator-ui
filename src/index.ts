@@ -19,3 +19,20 @@ export type { InfoChipProps, InfoChipTone } from './components/InfoChip';
 
 export { DimensionLine } from './components/DimensionLine';
 export type { DimensionLineProps } from './components/DimensionLine';
+
+/* SVG diagram primitives — shared across all calculator visualisations. */
+export { CuiDefs } from './svg/Defs';
+export type { CuiDefsProps } from './svg/Defs';
+export { DimLine } from './svg/DimLine';
+export type { DimLineProps } from './svg/DimLine';
+export { RotationArrow } from './svg/RotationArrow';
+export type { RotationArrowProps } from './svg/RotationArrow';
+export { SvgLabel } from './svg/Label';
+export type { SvgLabelProps, LabelVariant } from './svg/Label';
+export {
+  SVG_STROKE,
+  SVG_TEXT,
+  SVG_DASH,
+  SVG_COLOR,
+  SVG_CLEARANCE,
+} from './svg/tokens';

@@ -1,0 +1,1 @@
+{"version":3,"file":"tokens.d.ts","sourceRoot":"","sources":["../../src/svg/tokens.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAEH,eAAO,MAAM,UAAU;;;;;CAKb,CAAC;AAEX,eAAO,MAAM,QAAQ;;;;;CAKX,CAAC;AAEX,eAAO,MAAM,QAAQ;;;CAGX,CAAC;AAEX,uEAAuE;AACvE,eAAO,MAAM,SAAS;;;;;;;;;;CAUZ,CAAC;AAEX,uEAAuE;AACvE,eAAO,MAAM,aAAa;IACxB,yDAAyD;;IAEzD,+DAA+D;;IAE/D,iDAAiD;;IAEjD,iDAAiD;;CAEzC,CAAC"}
