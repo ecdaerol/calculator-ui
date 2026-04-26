@@ -1,0 +1,29 @@
+# calculator-ui
+
+> Shared design tokens, Tailwind preset, and React chrome components for the @ecdaerol calculator suite
+
+## Stack
+
+- TypeScript, Next.js (App Router), React, Tailwind CSS
+- Shared design system from `@ecdaerol/calculator-ui` and `tool-template`
+- Also published as an npm library (calculation core extracted from UI)
+
+## Architecture
+
+- `src/app/`: Next.js routes — entry pages and layout
+- `src/components/`: UI components (shared design system + page-specific)
+- `src/lib/`: Calculation core — pure functions, no React. **This is the math.**
+- `src/lib/index.ts`: npm library entry point
+
+## Key files
+
+- `README.md`: human-readable overview, formulas, references
+- `package.json`: scripts (`dev`, `build`, `test`, `lint`)
+- `src/lib/`: start here for engineering logic and validation
+- `src/app/page.tsx`: main UI entry point
+
+## How to navigate
+
+- For *math* questions → read `src/lib/`
+- For *UI* questions → read `src/app/` and `src/components/`
+- For *standards/references* (ISO, DIN, VDI, Eurocode) → check `README.md` references section
