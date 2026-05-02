@@ -20,6 +20,18 @@ export type { InfoChipProps, InfoChipTone } from './components/InfoChip';
 export { DimensionLine } from './components/DimensionLine';
 export type { DimensionLineProps } from './components/DimensionLine';
 
+export { DiagramCard } from './components/DiagramCard';
+export type { DiagramCardProps, DiagramTier } from './components/DiagramCard';
+
+export { LegendChip } from './components/LegendChip';
+export type { LegendChipProps, LegendChipKind } from './components/LegendChip';
+
+export { StatTile } from './components/StatTile';
+export type { StatTileProps } from './components/StatTile';
+
+export { chartTheme, seriesPalette } from './chart/theme';
+export type { SeriesPalette } from './chart/theme';
+
 /* SVG diagram primitives — shared across all calculator visualisations. */
 export { CuiDefs } from './svg/Defs';
 export type { CuiDefsProps } from './svg/Defs';
